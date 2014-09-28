@@ -64,6 +64,36 @@ The tokenization of HTMl elements is the lexical analysis.
 
 What happens is that the second before the browser starts parsing the HTML it enters a `data state`. As soon as it sees a `<` it will enter a `TAG OPEN STATE` and individual [a-z] characters are parsed. The browser is now looking for a specific element like `<html>`. It's in a `TAG NAME STATE` until it reaches the final `>`  As soon as `<HTML>` is created, the browser is back in data state until it reaches another `<` to start the process over again. Once the browser hits a `/` it will enter a `TAG CLOSE STATE` to close out the tag `</HTML>
 
+
+## CSS Specificity
+
+CSS Specificity determines which rules are applied by the browser. Defined By [http://www.w3.org/TR/css3-selectors/#specificity](W3 CSS)
+
+Set of rules that make up specificity:
+
+- 1 if declaration is from `style` attribute rather than a rule with a selector, 0 otherwise (a)
+- # of ID attributes on selector (b)
+- # of other attributes and psuedo-classes in the selector (c)
+- # of elelemtn names and psuedo elements in selector
+
+Here are some examples:
+
+Ruleset | inline styles | IDs | classes, attributes, psuedo classes | elements, psuedo elements
+
+| rule                | a | b | c | d |
+|---------------------|---|---|---|---|
+| *                   | 0 | 0 | 0 | 0 |
+| p                   | 0 | 0 | 0 | 1 |
+| p:last-child        | 0 | 0 | 1 | 1 |
+| ul li               | 0 | 0 | 0 | 2 |
+| p + p               | 0 | 0 | 0 | 2 |
+| #form               | 0 | 1 | 0 | 0 |
+| #form.red           | 0 | 1 | 1 | 0 |
+| .red                | 0 | 0 | 1 | 0 |
+| p.red.large         | 0 | 0 | 2 | 1 |
+| style="color:black" | 1 | 0 | 0 |   |
+
+
 ## Resources
 - [http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 - [http://www.aosabook.org/en/posa/high-performance-networking-in-chrome.html](http://www.aosabook.org/en/posa/high-performance-networking-in-chrome.html)
