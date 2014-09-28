@@ -1,7 +1,7 @@
 # Life of an HTTP Request
 
-1. You type a URL into your browser. (Chrome, Firefox, IE, Opera, etc)
-2. The browser starts looking cache for the IP of the visited domain, if it exists, skip to step 9. This is called DNS lookup.
+### You type a URL into your browser. (Chrome, Firefox, IE, Opera, etc)
+### The browser starts looking cache for the IP of the visited domain, if it exists, skip to step 9. This is called DNS lookup.
 
 > `DNS` - the phonebook of the internet. It translates domain names into numerical IP's needed to locate
 > servers anywhere in the world.
@@ -19,14 +19,16 @@ The search takes places on several levels:
 
 Recursive DNS Search:
 - `Root Nameserver`
-- `ORG Nameserver`
+- `TLD Nameserver`
 - `Facebook.com nameserver returns the designated IP`
 
-Since facebook.com has multiple servers all over the world, there is a system for connecting you with the best available option. The options include:
+Since facebook.com has multiple servers all over the world, they have their own nameservers that connect you with the best available option. There are many ways other providers can do this, here are a few:
 
 - Round Robin - DNS returns multiple IP addresses
 - Load Balancer - piece of hardware that forwards requests to other servers
 - Geographic DNS - returning a different IP depending on the client's geographic location. This is how `CDN`'s work.
+
+Once the correct IP is found, the browser sends an HTTP GET request to the web server.
 
 Once the right IP address is found, browser initiates a TCP connection with the server
 - Browser sends `GET HTTP Request` to the server according to HTTP protocol
@@ -47,17 +49,20 @@ dnt:1
 referer:https://www.facebook.com/
 user-agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.122 Safari/537.36
 ```
-`host` - The host site we're looking for
-`method` - Method that's taking place (GET)
-`User-Agent` - The browser identity
-`Accept` - Type of responses its willing to accept
-`Accept-Encoding` - The encoding of the responses (gzip, compression)
-`Connection` - asks server to keep TCP connection alive for further requests
+
+- `host` - The host site we're looking for
+- `method` - Method that's taking place (GET)
+- `User-Agent` - The browser identity
+- `Accept` - Type of responses its willing to accept
+- `Accept-Encoding` - The encoding of the responses (gzip, compression)
+- `Connection` - asks server to keep TCP connection alive for further requests
 
 POST vs GET
 
 GET request sends parameters via URL
 POST sends parameters in the request body
+
+The server responds with
 
 ```
 X-Frame-Options:
