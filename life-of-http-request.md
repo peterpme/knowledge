@@ -1,20 +1,32 @@
-# Life Of An HTTP Request
+# Life of an HTTP Request
 
-You type in a URL into your browser (Chrome, Firefox, IE, Opera, etc), several things can happen at this point depending on whether or not the information is cached.
+1. You type a URL into your browser. (Chrome, Firefox, IE, Opera, etc)
+2. The browser starts looking cache for the IP of the visited domain, if it exists, skip to step 9. This is called DNS lookup.
 
-Say it isn't:
-- DNS look up to find the IP of the server
-- DNS is considered to be the phone book of the internet. It translates domain names into numerical IP addresses needed to locate servers all over the world. The way this works is through `authoritative name servers` that'll give the request an answer in response to names in a zone.
+> `DNS` - the phonebook of the internet. It translates domain names into numerical IP's needed to locate
+> servers anywhere in the world.
 
-Caching Takes Place on Several Levels:
-- Your Browser
-- Operating System
-- Your Network Router
-- ISP Cache
+The search takes places on several levels:
+- Browser cache stores DNS records for a fixed duration
+- Operating system cache
+- Personal router cache
+- ISP cache
+- Finally, if it's not cached on the ISP level, the ISP DNS server starts a recursive search starting with the root name server and making its way down to the IP it is looking for.
 
-In the event that no cache exists, a DNS recursive search takes place in order to find the appropriate IP address.
+> There are/were 13 main `Root Name Servers` that handle requests for records and return a list of
+> `authoritative name servers` for the TLD you're looking for (.com, .org, etc). With anycast however, that
+> number of root name servers has been decentralized to something around 258 in order to bring down response times.
 
-The way the DNS recursive search because is by contacting the `root nameserer` and working with the TLD (top level domain) like .com first. The .com nameserver will then do its own search and call on the facebook.com nameserver. At that point, facebook.com will return an IP address to connect to.
+Recursive DNS Search:
+- `Root Nameserver`
+- `ORG Nameserver`
+- `Facebook.com nameserver returns the designated IP`
+
+Since facebook.com has multiple servers all over the world, there is a system for connecting you with the best available option. The options include:
+
+- Round Robin - DNS returns multiple IP addresses
+- Load Balancer - piece of hardware that forwards requests to other servers
+- Geographic DNS - returning a different IP depending on the client's geographic location. This is how `CDN`'s work.
 
 Once the right IP address is found, browser initiates a TCP connection with the server
 - Browser sends `GET HTTP Request` to the server according to HTTP protocol
