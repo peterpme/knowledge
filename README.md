@@ -1,4 +1,4 @@
-knowledge
+Knowledge
 =========
 
-Knowledge is Power
+A collection of fundamentals
