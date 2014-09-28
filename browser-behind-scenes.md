@@ -1,15 +1,20 @@
 # Behind The Scenes of A Browser
+Disclaimer: Still in brain dump mode
 
-Browsers like Chrome make `predictive optimizations` by observing network traffic. What it'll do is build a predictive model in order to improve performance. What that means is the second you start looking for a certain URL, like Facebook, Chrome will dispatch a speculative DNS lookup and even start the TCP handshake before you hit `enter`
+There's a lot that goes into actually having something appear on your website. The browser can request multiple forms of content whether it would be HTML, CSS, JS, images, other types of content, etc.
+
+> Browsers like Chrome make `predictive optimizations` by observing network traffic. What it'll do is build a predictive model in order to improve performance.
+> What that means is the second you start looking for a certain URL, like Facebook, Chrome will dispatch a speculative DNS lookup and even start the TCP handshake before you hit `enter`
 
 While browsers will have different engines that handle rendering differently, there are simlarities. They will have a User Interface, Browser Engine, Rendering Engine, Network Engine, Javascript Engine and the UI backend.
 
-`User Interface` - What the User sees. Includes Address Bar, Search, Bookmarks, etc.
-`Browser Engines` - Sole purpose is to communicate with the rendering engine
-`Renderring Engine` - Takes care of the page rendering process
-`Network Engine` - Handles network requests
-`Javascript Engine` - Handles javascript-related events
-`UI Backend` - Everything else
+- `User Interface` - What the User sees. Includes Address Bar, Search, Bookmarks, etc.
+- `Browser Engines` - Middleman between user interface and the rendering engine
+- `Renderring Engine` - Takes care of the page rendering process
+- `Network Engine` - Handles network requests like HTTP and other requests
+- `UI Backend` - draws basic widgets and exposes generic interface that is not platform specific
+- `Javascript Interpreter` - Parses and executes JS
+- `Data Storage` - Persistence layer to store stuff like cookies and now things like `localStorage`, `IndexedDB`, `WebSQL` and `FileSystem`
 
 Once you initiate the TCP handshake with the browser, the network engine will request 8kb of data at a time. All modern browsers are multi-threaded, which means they have the abililty to download in paralell, usually around 6 streams but there are ways an individual can increase this limit.
 
