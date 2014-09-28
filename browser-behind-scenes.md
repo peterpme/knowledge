@@ -97,3 +97,5 @@ Some of you may wonder about `!important` but that is not something you should b
 ## Resources
 - [http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 - [http://www.aosabook.org/en/posa/high-performance-networking-in-chrome.html](http://www.aosabook.org/en/posa/high-performance-networking-in-chrome.html)
+- [http://www.w3.org/TR/css3-selectors/#specificity](http://www.w3.org/TR/css3-selectors/#specificity)
+- [http://www.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/](http://www.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/)
