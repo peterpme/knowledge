@@ -10,15 +10,29 @@ While browsers will have different engines that handle rendering differently, th
 
 - `User Interface` - What the User sees. Includes Address Bar, Search, Bookmarks, etc.
 - `Browser Engines` - Middleman between user interface and the rendering engine
-- `Renderring Engine` - Takes care of the page rendering process
+- `Rendering Engine` - Takes care of the page rendering process
 - `Network Engine` - Handles network requests like HTTP and other requests
 - `UI Backend` - draws basic widgets and exposes generic interface that is not platform specific
 - `Javascript Interpreter` - Parses and executes JS
 - `Data Storage` - Persistence layer to store stuff like cookies and now things like `localStorage`, `IndexedDB`, `WebSQL` and `FileSystem`
 
-Once you initiate the TCP handshake with the browser, the network engine will request 8kb of data at a time. All modern browsers are multi-threaded, which means they have the abililty to download in paralell, usually around 6 streams but there are ways an individual can increase this limit.
+Once you initiate the TCP handshake with the browser, the network engine will request 8kb chunks at a time. All modern browsers are multi-threaded, which means they have the abililty to download in paralell, usually around 6 streams but there are ways an individual can increase this limit.
 
-From this point on the HTML parsing begins, which is an interative process. What that means is that a web page will start loading before it's completely finished. The reason this works the way it does is to improve the User Experience. The parser asks the lexer for a token and if it's valid it appends it to the `parse tree`. If it's not valid, that means there were errors in the process and document is not valid. There are many situations a document can become invalidated
+The main steps that take place in the process from the request to rendering the page on your browser:
+
+1. Parse HTML to construct DOM tree
+2. Render Tree construction
+3. Layout of Render Tree
+4. Paint Render tree
+
+As the network is transferring over data, a parser will start running through the HTML. This is an interactive proces, meaning that a web page will start displaying content on the page even before it's completely finished transferring. There are multiple reasons for why it was designed this way:
+
+- User Experience - the faster the user starts seeing something on the screen, the better
+- Changes in HTML - there are a variety of factors that can change the HTML structure - javascript being one of them.
+
+The `parser` will ask the `lexer` for a `token` and if its valid, it will append it to the `parse tree`. If it's not valid, that means there are errors in the process and the document becomes invalidated. There are many reasons why a document can become invalidated, mostly because of human error.
+
+The browser does a great job of handling these errors as well, which we will discuss in further detail below.
 
 `Parsing` - The process of converting human readable code into something the computer can use.
 
