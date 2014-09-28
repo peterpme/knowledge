@@ -66,7 +66,7 @@ What happens is that the second before the browser starts parsing the HTML it en
 
 ## CSS Specificity
 
-CSS Specificity determines which rules are applied by the browser. Defined By [http://www.w3.org/TR/css3-selectors/#specificity](W3 CSS)
+CSS Specificity determines which rules are applied by the browser. Defined By [http://www.w3.org/TR/css3-selectors/#specificity](W3 CSS).
 
 Set of rules that make up specificity:
 
@@ -90,6 +90,8 @@ Ruleset | inline styles | IDs | classes, attributes, psuedo classes | elements, 
 | .red                | 0 | 0 | 1 | 0 |
 | p.red.large         | 0 | 0 | 2 | 1 |
 | style="color:black" | 1 | 0 | 0 | 0 |
+
+Some of you may wonder about `!important` but that is not something you should be using. `!important` does override CSS but it should only be used on foreign css for example. Look for a way to handle the issue using specificity instead.
 
 
 ## Resources
