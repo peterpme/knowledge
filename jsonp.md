@@ -1,5 +1,5 @@
 # JSONP
-## The G**d, The Bad, The Ugly
+## The Bad, The Ugly
 
 XMLHttpRequest will not work across domains in order to prevent XSS. A way around this is wrapping regular JSON in a function.
 
