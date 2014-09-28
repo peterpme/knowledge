@@ -25,9 +25,9 @@ Recursive DNS Search:
 
 Since facebook.com has multiple servers all over the world, they have their own nameservers that connect you with the best available option. There are many ways other providers can do this, here are a few:
 
-- Round Robin - DNS returns multiple IP addresses
-- Load Balancer - piece of hardware that forwards requests to other servers
-- Geographic DNS - returning a different IP depending on the client's geographic location. This is how `CDN`'s work.
+> - Round Robin - DNS returns multiple IP addresses
+> - Load Balancer - piece of hardware that forwards requests to other servers
+> - Geographic DNS - returning a different IP depending on the client's geographic location. This is how `CDN`'s work.
 
 #### 4. Once the correct IP is found, the browser sends an `HTTP GET` request to the web server.
 
@@ -61,12 +61,12 @@ The more important of these fields:
 
 POST vs GET
 
-GET request sends parameters via URL
-POST sends parameters in the request body
+- GET request sends parameters via URL (http://facebook.com?q=name)
+- POST sends parameters in the request body
 
 #### 5. The server receives the request and now needs to process it before sending back a response
 
-Web servers use software like `Apache`, `Nginx` or IIS in order to handle HTTP requests and decide what needs to happen. This part is usually a black box when it comes to the browser. The server can store or process information but all the browser cares about is the response it will receive back. There is a `request hander` that will read the request parameters and the cookies and will decide what to do with the information. It will then generate an HTML response.
+Web servers use software like `Apache`, `Nginx` or `IIS` in order to handle HTTP requests and decide what needs to happen. This part is usually a black box when it comes to the browser. The server can store or process information but all the browser cares about is the response it will receive back. There is a `request hander` that will read the request parameters and the cookies and will decide what to do with the information. It will then generate an HTML response.
 
 #### 6. The server sends back a response
 
