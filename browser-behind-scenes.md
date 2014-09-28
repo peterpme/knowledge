@@ -84,14 +84,13 @@ Ruleset | inline styles | IDs | classes, attributes, psuedo classes | elements, 
 |---------------------|---|---|---|---|
 | *                   | 0 | 0 | 0 | 0 |
 | p                   | 0 | 0 | 0 | 1 |
-| p:last-child        | 0 | 0 | 1 | 1 |
+| p:last-child        | 0 | 0 | 0 | 2 |
 | ul li               | 0 | 0 | 0 | 2 |
 | p + p               | 0 | 0 | 0 | 2 |
 | #form               | 0 | 1 | 0 | 0 |
-| #form.red           | 0 | 1 | 1 | 0 |
 | .red                | 0 | 0 | 1 | 0 |
 | p.red.large         | 0 | 0 | 2 | 1 |
-| style="color:black" | 1 | 0 | 0 |   |
+| style="color:black" | 1 | 0 | 0 | 0 |
 
 
 ## Resources
