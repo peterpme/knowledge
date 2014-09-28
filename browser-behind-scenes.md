@@ -62,8 +62,7 @@ HTML can't use a top down or bottom up parser because of potentially unknown fac
 
 The tokenization of HTMl elements is the lexical analysis.
 
-What happens is that the second before the browser starts parsing the HTML it enters a `data state`. As soon as it sees a `<` it will enter a `TAG OPEN STATE` and individual [a-z] characters are parsed. The browser is now looking for a specific element like `<html>`. It's in a `TAG NAME STATE` until it reaches the final `>`  As soon as `<HTML>` is created, the browser is back in data state until it reaches another `<` to start the process over again. Once the browser hits a `/` it will enter a `TAG CLOSE STATE` to close out the tag `</HTML>
-
+What happens is that the second before the browser starts parsing the HTML it enters a `data state`. As soon as it sees a `<` it will enter a `TAG OPEN STATE` and individual [a-z] characters are parsed. The browser is now looking for a specific element like `<html>`. It's in a `TAG NAME STATE` until it reaches the final `>`  As soon as `<HTML>` is created, the browser is back in data state until it reaches another `<` to start the process over again. Once the browser hits a `/` it will enter a `TAG CLOSE STATE` to close out the tag
 
 ## CSS Specificity
 
