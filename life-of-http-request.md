@@ -1,7 +1,7 @@
 # Life of an HTTP Request
 
-### You type a URL into your browser. (Chrome, Firefox, IE, Opera, etc)
-### The browser starts looking cache for the IP of the visited domain, if it exists, skip to step 9. This is called DNS lookup.
+#### You type a URL into your browser. (Chrome, Firefox, IE, Opera, etc)
+#### The browser starts looking cache for the IP of the visited domain, if it exists, skip to step 9. This is called DNS lookup.
 
 > `DNS` - the phonebook of the internet. It translates domain names into numerical IP's needed to locate
 > servers anywhere in the world.
