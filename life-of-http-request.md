@@ -1,4 +1,4 @@
-# Behind The Scenes of Typing In a Url
+# Life Of An HTTP Request
 
 You type in a URL into your browser (Chrome, Firefox, IE, Opera, etc), several things can happen at this point depending on whether or not the information is cached.
 
@@ -95,4 +95,3 @@ Once that request has been processed, the server sends the HTTP Response back to
 - [https://en.wikipedia.org/wiki/Name_server#Authoritative_name_server](https://en.wikipedia.org/wiki/Name_server#Authoritative_name_server)
 - [http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/](http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/)
 - [http://www.jmarshall.com/easy/http/](http://www.jmarshall.com/easy/http/)
-- [http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
