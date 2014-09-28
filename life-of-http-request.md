@@ -87,7 +87,7 @@ x-frame-options:SAMEORIGIN
 x-xss-protection:0
 ```
 
-Definitiosn of some of the headers returned:
+Definitions of some of the headers returned:
 
 - `content-type` - The type of content that will be sent in the response body. We can see that the server responded with HTML
 - `content-encoding` - Tells the browser that the content being sent back is gzipped and it needs to do something with it
