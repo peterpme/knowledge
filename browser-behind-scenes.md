@@ -1,5 +1,4 @@
 # Behind The Scenes of A Browser
-Disclaimer: Still in brain dump mode
 
 There's a lot that goes into actually having something appear on your website. The browser can request multiple forms of content whether it would be HTML, CSS, JS, images, other types of content, etc.
 
